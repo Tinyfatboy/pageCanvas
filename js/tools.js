@@ -21,13 +21,14 @@ $panel.on('touchstart', function (e) {
     }
 
     if (targetElement) {
+        e.preventDefault()
         panelState = targetElement.className
-        if (panelState !== 'download' && panelState !== 'clear') {
-            testPanel(panelState)
-        }
-        else if(panelState === 'clear'){
-            console.log(canvas);
+        if(panelState === 'clear'){
             clearCanvas(canvas)
+        }else if(panelState === 'download'){
+            download()
+        }else{
+            testPanel(panelState)
         }
     }
 })
@@ -51,4 +52,16 @@ function testPanel(panelState) {
 function clearCanvas(canvas) {
     var ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+}
+
+function download() {
+    var downloadLink = $('<a></a>')
+    downloadLink.attr('href',canvas.toDataURL())
+    downloadLink.attr('download','myPainting.png')
+    var click = new MouseEvent('click')
+    console.log(click)
+    downloadLink.on('click', function () {
+
+    })
+    downloadLink[0].dispatchEvent(click)
 }
