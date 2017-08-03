@@ -11,7 +11,8 @@ $(function () {
         position: 'absolute',
         top: '0',
         left: '0',
-        background: '#E6E6E6'
+        background: 'white',
+        borderRadius: '3vw'
     })
 
     let lastPoint = null

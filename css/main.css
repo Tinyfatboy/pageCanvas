@@ -4,17 +4,21 @@ body{
     align-items: center;
     justify-content: space-between;
     height: 100vh;
+    background: #599BFF;
 }
 
 div.canvasWrapper{
-    height: 85vh;
-    width: 100vw;
+    margin-top: 5vh;
+    height: 80vh;
+    width: 80vw;
     position: relative;
+    border: 1px solid black;
+    border-radius: 3vw;
 }
 
 div.panel{
     border-radius: 2vw;
-    background: #F6F6F6;
+    background: #E6E6E6;
     height: 18vw;
     width: 80vw;
     display: flex;
