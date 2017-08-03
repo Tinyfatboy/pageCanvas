@@ -22,7 +22,13 @@ $canvas.on('touchstart', function (e) {
     let {x, y} = getMousePosition(canvas, touch)
     lastPoint = {x: x, y: y}
 
-    addPoint(x, y)
+    if(panelState === 'pen'){
+        addPoint(x, y)
+    }else if(panelState === 'erase'){
+
+    }else if(panelState === 'painter'){
+        paintPoint(x, y)
+    }
 })
 
 $canvas.on('touchmove', function (e) {
@@ -30,7 +36,13 @@ $canvas.on('touchmove', function (e) {
     let touch = e.originalEvent.touches[0]
     let {x, y} = getMousePosition(canvas, touch)
 
-    drawLine(lastPoint.x, lastPoint.y, x, y)
+    if(panelState === 'pen'){
+        drawLine(lastPoint.x, lastPoint.y, x, y)
+    }else if(panelState === 'erase'){
+
+    }else if(panelState === 'painter'){
+        paintPoint(x, y)
+    }
     lastPoint = {x: x, y: y}
 })
 
@@ -51,6 +63,15 @@ function drawLine(x1, y1, x2, y2) {
     ctx.beginPath()
     ctx.moveTo(x1, y1)
     ctx.lineTo(x2, y2)
+    ctx.stroke()
+}
+
+function paintPoint(x, y) {
+    var ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.arc(x,y,5,0,Math.PI*2)
+    ctx.fillStyle = 'black'
+    ctx.fill()
     ctx.stroke()
 }
 
