@@ -16,7 +16,7 @@ div.canvasWrapper{
     border-radius: 3vw;
 }
 
-div.panel{
+section.panel{
     border-radius: 2vw;
     background: #E6E6E6;
     height: 18vw;
@@ -25,7 +25,7 @@ div.panel{
     justify-content: space-around;
     align-items: center;
 }
-div.panel > div{
+section.panel > div{
     border: 2px solid black;
     border-radius: 3vw;
     width:  12vw;
@@ -35,7 +35,7 @@ div.panel > div{
     justify-content: center;
     align-items: center;
 }
-div.panel svg{
+section.panel svg{
     width: 8vw;
     height: 8vw;
 }
