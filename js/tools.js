@@ -11,7 +11,6 @@ testPanel(panelState)
 
 $panel.on('touchstart', function (e) {
     var targetElement = e.originalEvent.target
-    console.log(targetElement.tagName)
     while (targetElement.tagName !== 'DIV') {
         if (targetElement === $panel[0]) {
             targetElement = null
@@ -27,7 +26,8 @@ $panel.on('touchstart', function (e) {
             testPanel(panelState)
         }
         else if(panelState === 'clear'){
-            console.log($canvas)
+            console.log(canvas);
+            clearCanvas(canvas)
         }
     }
 })
@@ -46,4 +46,9 @@ function testPanel(panelState) {
         $panel.children('div').css('background', '#FFFFFF')
         $pen.css('background', '#F074A4')
     }
+}
+
+function clearCanvas(canvas) {
+    var ctx = canvas.getContext('2d')
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 }

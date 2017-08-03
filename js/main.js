@@ -4,6 +4,7 @@ let width = $canvasWrapper.width()
 let height = $canvasWrapper.height()
 
 var $canvas = $('<canvas></canvas>').attr('height', height).attr('width', width)
+var canvas = $canvas[0]
 $canvas.appendTo($canvasWrapper)
 
 $canvas.css({
@@ -14,8 +15,7 @@ $canvas.css({
     borderRadius: '3vw'
 })
 
-let lastPoint = null
-let canvas = $canvas[0]
+let lastPoint =null
 
 $canvas.on('touchstart', function (e) {
     let touch = e.originalEvent.touches[0]
