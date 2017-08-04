@@ -18,13 +18,19 @@ if(deviceWidth > 415){
         if (targetElement) {
             e.preventDefault()
             currentColor = targetElement.className
-            console.log(currentColor)
-            setCurrentColor(canvas, currentColor)
+            setCurrentColor(currentColor)
+            changeColor(canvas, currentColor)
         }
     })
 }
 
-function setCurrentColor(canvas, color) {
+function setCurrentColor(color) {
+    let $colorSVG = $('SVG.currentColorSvg')
+    $colorSVG.children('circle').attr('fill', color)
+
+}
+
+function changeColor(canvas, color) {
     var ctx = canvas.getContext('2d')
     ctx.strokeStyle = color
     ctx.fillStyle = color
