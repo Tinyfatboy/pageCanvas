@@ -1,13 +1,13 @@
 var $pen = $('.pen')
-var $clear = $('.clear')
 var $erase = $('.erase')
 var $painter = $('.painter')
-var $download = $('.download')
 
 var $panel = $('.panel')
 
 var panelState = 'pen'
 testPanel(panelState)
+
+var deviceWidth = window.screen.width
 
 $panel.on('touchstart', function (e) {
     var targetElement = e.originalEvent.target
