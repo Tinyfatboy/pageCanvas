@@ -7,31 +7,68 @@ var $panel = $('.panel')
 var panelState = 'pen'
 testPanel(panelState)
 
-var deviceWidth = window.screen.width
+if(deviceWidth > 415){
+    toolsOnPad()
+}else {
+    toolsOnPhone()
+}
 
-$panel.on('touchstart', function (e) {
-    var targetElement = e.originalEvent.target
-    while (targetElement.tagName !== 'DIV') {
-        if (targetElement === $panel[0]) {
-            targetElement = null
-            break
-        } else {
-            targetElement = targetElement.parentNode
+function toolsOnPhone() {
+    $panel.on('touchstart', function (e) {
+        var targetElement = e.originalEvent.target
+        while (targetElement.tagName !== 'DIV') {
+            if (targetElement === $panel[0]) {
+                targetElement = null
+                break
+            } else {
+                targetElement = targetElement.parentNode
+            }
         }
-    }
 
-    if (targetElement) {
-        e.preventDefault()
-        panelState = targetElement.className
-        if(panelState === 'clear'){
-            clearCanvas(canvas)
-        }else if(panelState === 'download'){
-            download()
-        }else{
-            testPanel(panelState)
+        if (targetElement) {
+            e.preventDefault()
+            panelState = targetElement.className
+            if(panelState === 'clear'){
+                clearCanvas(canvas)
+            }else if(panelState === 'download'){
+                download()
+            }else{
+                testPanel(panelState)
+            }
         }
-    }
-})
+    })
+
+}
+
+function toolsOnPad() {
+    $panel.on('click', function (e) {
+        var targetElement = e.originalEvent.target
+        while (targetElement.tagName !== 'DIV') {
+            if (targetElement === $panel[0]) {
+                targetElement = null
+                break
+            } else {
+                targetElement = targetElement.parentNode
+            }
+        }
+
+        if (targetElement) {
+            e.preventDefault()
+            let preState = panelState
+            panelState = targetElement.className
+            if(panelState === 'clear'){
+                clearCanvas(canvas)
+                panelState = preState
+            }else if(panelState === 'download'){
+                download()
+                panelState = preState
+            }else{
+                testPanel(panelState)
+            }
+        }
+    })
+}
+
 
 function testPanel(panelState) {
     if (panelState === 'pen') {
@@ -56,12 +93,11 @@ function clearCanvas(canvas) {
 
 function download() {
     var downloadLink = $('<a></a>')
-    downloadLink.attr('href',canvas.toDataURL())
-    downloadLink.attr('download','myPainting.png')
-    var click = new MouseEvent('click')
-    console.log(click)
+    downloadLink.attr('href', canvas.toDataURL())
+    downloadLink.attr('download', 'myPainting.png')
+    var event = new MouseEvent('click')
     downloadLink.on('click', function () {
 
     })
-    downloadLink[0].dispatchEvent(click)
+    downloadLink[0].dispatchEvent(event)
 }

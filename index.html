@@ -22,8 +22,86 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <div class="canvasWrapper">
-        </div>
+        <section class="colorPanel">
+            <div class="red">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="red" />
+                </svg>
+            </div>
+            <div class="orange">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="orange" />
+                </svg>
+            </div>
+            <div class="yellow">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="yellow" />
+                </svg>
+            </div>
+            <div class="green">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="green" />
+                </svg>
+            </div>
+            <div class="blue">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="blue" />
+                </svg>
+            </div>
+            <div class="pink">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="pink" />
+                </svg>
+            </div>
+            <div class="black">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="black" />
+                </svg>
+            </div>
+            <div class="grey">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="grey" />
+                </svg>
+            </div>
+            <div class="icon-color">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-color"></use>
+                </svg>
+            </div>
+            <div class="currentColor">
+                <svg version="1.1"
+                     baseProfile="full"
+                     width="7vh" height="7vh"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3vh" cy="3vh" r="3vh" fill="black" />
+                </svg>
+            </div>
+        </section>
+        <div class="canvasWrapper"></div>
         <section class="panel">
             <div class="pen">
                 <svg class="icon" aria-hidden="true">
@@ -52,11 +130,13 @@
             </div>
         </section>
 
-        <script src="//at.alicdn.com/t/font_psbdsmsoy132qpvi.js"></script>
+        <script src="//at.alicdn.com/t/font_o0aoikjeit1sv2t9.js"></script>
         <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
+        <script src="js/createCanvas.js"></script>
         <script src="js/tools.js"></script>
+        <script src="js/colors.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

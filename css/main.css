@@ -7,6 +7,10 @@ body{
     background: #599BFF;
 }
 
+section.colorPanel{
+    display: none;
+}
+
 div.canvasWrapper{
     margin-top: 5vh;
     height: 80vh;
@@ -49,11 +53,49 @@ section.panel svg{
         justify-content: center;
         align-items: center;
     }
+    section.colorPanel{
+        display: block;
+        height: 75vh;
+        width: 10vh;
+        background: #E6E6E6;
+        border-radius: 2vh;
+        margin-left: 5vw;
+        margin-right: -10vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    section.colorPanel > div{
+        height: 6vh;
+        width: 6vh;
+        border-radius: 50%;
+        border: 1px solid #000000;
+    }
+    section.colorPanel > div:not(:nth-last-child(1)):not(:nth-last-child(2)):hover{
+        cursor: pointer;
+    }
+    section.colorPanel > div.icon-color{
+        border: none;
+        display: flex;
+        height: 5vh;
+        width: 5vh;
+        position: relative;
+        margin-top: 1vh;
+    }
+    section.colorPanel > div.icon-color > svg{
+        height: 4vh;
+        width: 4vh;
+        position: absolute;
+        top: 0.5vh;
+        left: 0.5vh;
+    }
     div.canvasWrapper{
         height: 85vh;
         width: 55vw;
         margin-top: 0;
         margin-left: 5vw;
+        border-radius: 2vh;
     }
     section.panel{
         height: 65vh;

@@ -1,53 +1,90 @@
-var $canvasWrapper = $('.canvasWrapper')
+let lastPoint =null;
 
-let width = $canvasWrapper.width()
-let height = $canvasWrapper.height()
+if(deviceWidth > 415){
+    drawOnPad();
+    $canvas.css('borderRadius', '2vh')
+}else {
+    drawOnPhone();
+    $canvas.css('borderRadius', '3vw')
+}
 
-var $canvas = $('<canvas></canvas>').attr('height', height).attr('width', width)
-var canvas = $canvas[0]
-$canvas.appendTo($canvasWrapper)
+function drawOnPhone() {
+    $canvas.on('touchstart', function (e) {
+        let event = e.originalEvent.touches[0];
+        let {x, y} = getMousePosition(canvas, event);
+        lastPoint = {x: x, y: y};
 
-$canvas.css({
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    background: 'white',
-    borderRadius: '3vw'
-})
+        if(panelState === 'pen'){
+            addPoint(x, y)
+        }else if(panelState === 'erase'){
+            eraseCanvas(x, y)
+        }else if(panelState === 'painter'){
+            paintPoint(x, y)
+        }
+    });
 
-let lastPoint =null
+    $canvas.on('touchmove', function (e) {
+        e.preventDefault();
+        let event = e.originalEvent.touches[0];
+        let {x, y} = getMousePosition(canvas, event);
 
-$canvas.on('touchstart', function (e) {
-    let touch = e.originalEvent.touches[0]
-    let {x, y} = getMousePosition(canvas, touch)
-    lastPoint = {x: x, y: y}
+        if(!lastPoint){
+            return
+        }
+        if(panelState !== 'erase'){
+            drawLine(lastPoint.x, lastPoint.y, x, y)
+        }else{
+            eraseCanvas(x, y)
+        }
+        lastPoint = {x: x, y: y}
+    })
+}
 
-    if(panelState === 'pen'){
-        addPoint(x, y)
-    }else if(panelState === 'erase'){
-        eraseCanvas(x, y)
-    }else if(panelState === 'painter'){
-        paintPoint(x, y)
+function drawOnPad() {
+    $canvas.on('mousedown', function (e) {
+        let event = e.originalEvent;
+        let {x, y} = getMousePosition(canvas, event);
+        lastPoint = {x: x, y: y};
+
+        if(panelState === 'pen'){
+            addPoint(x, y)
+        }else if(panelState === 'erase'){
+            eraseCanvas(x, y)
+        }else if(panelState === 'painter'){
+            paintPoint(x, y)
+        }
+        $canvas.on('mousemove', mouseMove)
+    });
+
+
+    $canvas.on('mouseup', function () {
+        $canvas.unbind('mousemove', mouseMove)
+    })
+
+    $canvas.on('mouseleave', function () {
+        $canvas.unbind('mousemove', mouseMove)
+    })
+}
+
+function mouseMove(e) {
+    let event = e.originalEvent;
+    let {x, y} = getMousePosition(canvas, event);
+
+    if(!lastPoint){
+        return
     }
-})
-
-$canvas.on('touchmove', function (e) {
-    e.preventDefault()
-    let touch = e.originalEvent.touches[0]
-    let {x, y} = getMousePosition(canvas, touch)
-
-    if(panelState !== 'erase'){
+    if (panelState !== 'erase') {
         drawLine(lastPoint.x, lastPoint.y, x, y)
-    }else{
+    } else {
         eraseCanvas(x, y)
     }
     lastPoint = {x: x, y: y}
-})
+}
 
 function getMousePosition(canvas, event) {
-    let rect = canvas.getBoundingClientRect()
-    let x = event.clientX - rect.left
-    let y = event.clientY - rect.top
+    let rect = canvas.getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
     return {x, y}
 }
 
@@ -57,37 +94,37 @@ function addPoint(x, y) {
 }
 
 function drawLine(x1, y1, x2, y2) {
-    var ctx = canvas.getContext('2d')
+    var ctx = canvas.getContext('2d');
     if(panelState === 'painter'){
-        ctx.lineWidth = 12
+        ctx.lineWidth = 12;
         ctx.lineCap="round"
     }else {
-        ctx.lineWidth = 1
+        ctx.lineWidth = 1;
         ctx.lineCap="butt"
     }
-    ctx.beginPath()
-    ctx.moveTo(x1, y1)
-    ctx.lineTo(x2, y2)
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
     ctx.stroke()
 }
 
 function paintPoint(x, y) {
-    var ctx = canvas.getContext('2d')
-    ctx.lineWidth = 1
-    ctx.beginPath()
-    ctx.arc(x,y,5,0,Math.PI*2)
-    ctx.fillStyle = 'black'
-    ctx.fill()
+    var ctx = canvas.getContext('2d');
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(x,y,5,0,Math.PI*2);
+    ctx.fillStyle = 'black';
+    ctx.fill();
     ctx.stroke()
 }
 
 function eraseCanvas(x, y){
-    var ctx = canvas.getContext('2d')
+    var ctx = canvas.getContext('2d');
     ctx.save();
     ctx.beginPath();
-    ctx.arc(x,y,10,0,Math.PI*2,false)
+    ctx.arc(x,y,10,0,Math.PI*2,false);
     ctx.clip();
-    ctx.clearRect(0,0,canvas.width,canvas.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.restore()
 }
 
