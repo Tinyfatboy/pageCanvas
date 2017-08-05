@@ -39,7 +39,6 @@ function setCurrentColor(color) {
 }
 
 if(randerWidth > 415){
-    setCurrentColor(currentColor)
     $colorPanel.on('touchstart', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {
