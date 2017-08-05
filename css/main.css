@@ -46,6 +46,10 @@ section.panel svg{
     height: 8vw;
 }
 
+canvas{
+    border-radius: 2vh;
+}
+
 @media (min-width: 415px) {
     body{
         display: flex;
@@ -115,5 +119,8 @@ section.panel svg{
     }
     section.panel > div:hover{
         cursor:pointer
+    }
+    canvas{
+        border-radius: 2vh;
     }
 }
