@@ -69,7 +69,6 @@ function toolsOnPad() {
     })
 }
 
-
 function testPanel(panelState) {
     if (panelState === 'pen') {
         $panel.children('div').css('background', '#FFFFFF')
