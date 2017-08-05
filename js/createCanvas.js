@@ -16,11 +16,4 @@ $canvas.css({
     background: 'white'
 })
 
-if(deviceWidth > 415){
-    drawOnPad();
-    $canvas.css('borderRadius', '2vh')
-}else {
-    drawOnPhone();
-    $canvas.css('borderRadius', '3vw')
-}
 
