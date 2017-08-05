@@ -5,7 +5,7 @@ if(deviceWidth > 415){
     $canvas.css('borderRadius', '2vh')
 }else {
     drawOnPhone();
-    $canvas.css('borderRadius', '50%')
+    $canvas.css('borderRadius', '3vw')
 }
 
 function drawOnPhone() {

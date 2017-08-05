@@ -27,11 +27,14 @@ function toolsOnPhone() {
 
         if (targetElement) {
             e.preventDefault()
+            let preState = panelState
             panelState = targetElement.className
             if(panelState === 'clear'){
                 clearCanvas(canvas)
+                panelState = preState
             }else if(panelState === 'download'){
                 download()
+                panelState = preState
             }else{
                 testPanel(panelState)
             }
