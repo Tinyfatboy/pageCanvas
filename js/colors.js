@@ -25,7 +25,7 @@ if(deviceWidth > 415){
 }
 
 function setCurrentColor(color) {
-    let $colorSVG = $('.currentColorSvg')
+    let $colorSVG = $('.currentColorSvg') //选择器SVG
     $colorSVG.find('circle')[0].setAttribute('fill', color)
 }
 
