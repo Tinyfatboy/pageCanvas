@@ -2,7 +2,7 @@ var $colorPanel = $('.colorPanel')
 var currentColor = 'black'
 
 if(deviceWidth > 415){
-    setCurrentColor(canvas, currentColor)
+    setCurrentColor(currentColor)
 
     $colorPanel.on('click', function (e) {
         var targetElement = e.originalEvent.target
@@ -31,8 +31,7 @@ function setCurrentColor(color) {
 }
 
 if(randerWidth > 415){
-    setCurrentColor(canvas, currentColor)
-
+    setCurrentColor(currentColor)
     $colorPanel.on('touchstart', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {
