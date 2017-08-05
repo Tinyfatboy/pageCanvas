@@ -26,8 +26,16 @@ if(deviceWidth > 415){
 
 function setCurrentColor(color) {
     let $colorSVG = $('SVG.currentColorSvg')
-    $colorSVG.find('circle').attr('fill', color)
-
+    let ctx = canvas.getContext('2d')
+    ctx.arc(30,30,5,0,Math.PI*2)
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.stroke()
+    $colorSVG.find('circle')[0].setAttribute('fill', color)
+    ctx.arc(10,10,5,0,Math.PI*2)
+    ctx.fillStyle = 'black';
+    ctx.fill();
+    ctx.stroke()
 }
 
 if(randerWidth > 415){
