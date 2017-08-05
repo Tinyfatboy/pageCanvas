@@ -26,7 +26,7 @@ if(deviceWidth > 415){
 
 function setCurrentColor(color) {
     let $colorSVG = $('SVG.currentColorSvg')
-    $colorSVG.children('circle').attr('fill', color)
+    $colorSVG.find('circle').attr('fill', color)
 
 }
 
