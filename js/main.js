@@ -1,5 +1,13 @@
 let lastPoint =null;
 
+if(deviceWidth > 415){
+    drawOnPad();
+    $canvas.css('borderRadius', '2vh')
+}else {
+    drawOnPhone();
+    $canvas.css('borderRadius', '3vw')
+}
+
 function drawOnPhone() {
     $canvas.on('touchstart', function (e) {
         let event = e.originalEvent.touches[0];
