@@ -28,12 +28,12 @@ function setCurrentColor(color) {
     let $colorSVG = $('SVG.currentColorSvg')
     let ctx = canvas.getContext('2d')
     ctx.arc(30,30,5,0,Math.PI*2)
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = color;
     ctx.fill();
     ctx.stroke()
     $colorSVG.find('circle')[0].setAttribute('fill', color)
     ctx.arc(10,10,5,0,Math.PI*2)
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = color;
     ctx.fill();
     ctx.stroke()
 }
