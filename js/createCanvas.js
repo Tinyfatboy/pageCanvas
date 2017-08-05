@@ -15,5 +15,3 @@ $canvas.css({
     left: '0',
     background: 'white'
 })
-
-
