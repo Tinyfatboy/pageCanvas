@@ -2,7 +2,6 @@ var $colorPanel = $('.colorPanel')
 var currentColor = 'black'
 
 if(deviceWidth > 415){
-    setCurrentColor(currentColor)
     $colorPanel.on('click', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {
@@ -37,7 +36,7 @@ window.onresize= function () {
     let height = $canvasWrapper.height();
 
     $canvas.attr('height', height).attr('width', width);
-    changeColor(canvas, currentColor)
+    setCurrentColor('black')
     renderWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
     if(renderWidth > 415){
         touchScreenColor()
@@ -51,7 +50,6 @@ function changeColor(canvas, color) {
 }
 
 function touchScreenColor() {
-    setCurrentColor(currentColor)
     $colorPanel.on('touchstart', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {
