@@ -39,12 +39,11 @@ window.onresize= function () {
     $canvas.attr('height', height).attr('width', width);
     changeColor(canvas, currentColor)
 
-    var ctx = canvas.getContext('2d')
-    ctx.arc(100,100,20,0,Math.PI*2);
-    ctx.fill();
-    ctx.stroke()
-
     if(renderWidth > 415){
+        let ctx = canvas.getContext('2d')
+        ctx.arc(100,100,20,0,Math.PI*2);
+        ctx.fill();
+        ctx.stroke()
         touchScreenColor()
     }
 }
