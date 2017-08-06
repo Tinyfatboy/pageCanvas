@@ -37,6 +37,12 @@ window.onresize= function () {
     let height = $canvasWrapper.height();
 
     $canvas.attr('height', height).attr('width', width);
+    changeColor(canvas, currentColor)
+
+    var ctx = canvas.getContext('2d')
+    ctx.arc(100,100,20,0,Math.PI*2);
+    ctx.fill();
+    ctx.stroke()
 
     if(renderWidth > 415){
         touchScreenColor()
@@ -50,6 +56,7 @@ function changeColor(canvas, color) {
 }
 
 function touchScreenColor() {
+    setCurrentColor(currentColor)
     $colorPanel.on('touchstart', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {

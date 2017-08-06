@@ -111,7 +111,6 @@ function paintPoint(x, y) {
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.arc(x,y,5,0,Math.PI*2);
-    ctx.fillStyle = 'black';
     ctx.fill();
     ctx.stroke()
 }
