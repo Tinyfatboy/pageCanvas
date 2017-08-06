@@ -38,10 +38,6 @@ window.onresize= function () {
     let height = $canvasWrapper.height();
 
     $canvas.attr('height', height).attr('width', width);
-
-    if(renderWidth > 415){
-        touchScreenColor()
-    }
 }
 
 function changeColor(canvas, color) {
