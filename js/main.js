@@ -1,9 +1,12 @@
 let lastPoint =null;
 
-if(deviceWidth > 415){
-    drawOnPad();
+if(deviceWidth > 1024){
+    drawOnPad()
+}else if(deviceWidth > 415){
+    drawOnPhone()
+    drawOnPad()
 }else {
-    drawOnPhone();
+    drawOnPhone()
 }
 
 function drawOnPhone() {
