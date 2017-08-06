@@ -33,6 +33,17 @@ if(renderWidth > 415){
     touchScreenColor()
 }
 
+window.onresize= function () {
+    let width = $canvasWrapper.width();
+    let height = $canvasWrapper.height();
+
+    $canvas.attr('height', height).attr('width', width);
+
+    if(renderWidth > 415){
+        touchScreenColor()
+    }
+}
+
 function changeColor(canvas, color) {
     var ctx = canvas.getContext('2d')
     ctx.strokeStyle = color
@@ -58,15 +69,4 @@ function touchScreenColor() {
             changeColor(canvas, currentColor)
         }
     })
-}
-
-window.onresize= function () {
-    let width = $canvasWrapper.width();
-    let height = $canvasWrapper.height();
-
-    $canvas.attr('height', height).attr('width', width);
-
-    if(renderWidth > 415){
-        touchScreenColor()
-    }
 }

@@ -8,6 +8,7 @@ var renderWidth = window.innerWidth || document.documentElement.clientWidth || d
 
 var $canvas = $('<canvas></canvas>').attr('height', height).attr('width', width);
 var canvas = $canvas[0];
+
 $canvas.appendTo($canvasWrapper);
 
 $canvas.css({
