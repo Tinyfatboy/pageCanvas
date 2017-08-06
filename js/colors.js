@@ -29,7 +29,17 @@ function setCurrentColor(color) {
     $colorSVG.find('circle')[0].setAttribute('fill', color)
 }
 
-if(randerWidth > 415){
+if(renderWidth > 415){
+    touchScreenColor()
+}
+
+function changeColor(canvas, color) {
+    var ctx = canvas.getContext('2d')
+    ctx.strokeStyle = color
+    ctx.fillStyle = color
+}
+
+function touchScreenColor() {
     $colorPanel.on('touchstart', function (e) {
         var targetElement = e.originalEvent.target
         while (targetElement.tagName !== 'DIV') {
@@ -50,8 +60,13 @@ if(randerWidth > 415){
     })
 }
 
-function changeColor(canvas, color) {
-    var ctx = canvas.getContext('2d')
-    ctx.strokeStyle = color
-    ctx.fillStyle = color
+window.onresize= function () {
+    let width = $canvasWrapper.width();
+    let height = $canvasWrapper.height();
+
+    $canvas.attr('height', height).attr('width', width);
+
+    if(renderWidth > 415){
+        touchScreenColor()
+    }
 }

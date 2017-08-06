@@ -4,7 +4,7 @@ let width = $canvasWrapper.width();
 let height = $canvasWrapper.height();
 
 var deviceWidth = window.screen.width
-var randerWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+var renderWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
 var $canvas = $('<canvas></canvas>').attr('height', height).attr('width', width);
 var canvas = $canvas[0];
