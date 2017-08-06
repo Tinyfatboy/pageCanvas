@@ -40,10 +40,6 @@ window.onresize= function () {
     changeColor(canvas, currentColor)
 
     if(renderWidth > 415){
-        let ctx = canvas.getContext('2d')
-        ctx.arc(300,300,10,0,Math.PI*2);
-        ctx.fill();
-        ctx.stroke()
         touchScreenColor()
     }
 }
