@@ -1,10 +1,10 @@
 let lastPoint =null;
 
 if(deviceWidth > 1024){
-    drawOn()
+    drawOnPad()
 }else if(deviceWidth > 415){
     drawOnPhone()
-    drawOn()
+    drawOnPad()
 }else {
     drawOnPhone()
 }
@@ -41,7 +41,7 @@ function drawOnPhone() {
     })
 }
 
-function drawOn() {
+function drawOnPad() {
     $canvas.on('mousedown', function (e) {
         let event = e.originalEvent;
         let {x, y} = getMousePosition(canvas, event);
