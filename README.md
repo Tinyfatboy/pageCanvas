@@ -2,7 +2,7 @@
 
 ### 预览页面
 
-- 预览页面[Canvas画图页面](https://tinyfatboy.github.io/pageCanvas/index.html)
+- 预览页面：[Canvas画图页面](https://tinyfatboy.github.io/pageCanvas/index.html)
 
 ### 说明
 
